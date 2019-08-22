@@ -1,0 +1,28 @@
+<div class="container">
+  <form #form="ngForm" (ngSubmit)="processForm(form)">
+      <div class="form-group">
+          <label>Name : </label>
+            <input type="text" name="name" required [(ngModel)]="model.name" #name="ngModel">  <!-- [()] -> two way binding -->
+        </div>
+        
+        <div class="form-group">
+            <label>Email : </label>
+              <input type="text" name="email" email required [(ngModel)]="model.email" #email="ngModel">
+          </div>
+          
+          <div class="form-group">
+              <label>Phone : </label>
+                <input type="text" name="phone" minlength="8" required [(ngModel)]="model.phone" #phone="ngModel"> 
+            </div>
+    
+            <div class="form-group">
+                <label>Attending : </label>
+                <input type="radio" name="attending" [(ngModel)]="model.attending" #attending="ngModel" value="Yes">Yes
+                <input type="radio" name="attending" [(ngModel)]="model.attending" #attending="ngModel" value="No">No
+              </div>
+      
+              <button type="submit" class="btn btn-success" [disabled]="form.invalid" >Submit</button>
+              &nbsp; <input type="button" class="btn btn-danger" (click)="resetForm(form)" value="Reset">
+    
+    </form>
+</div>
